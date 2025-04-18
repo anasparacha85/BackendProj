@@ -6,7 +6,8 @@ const loginvalidate=z.object({
 
 const signupvalidate=loginvalidate.extend({
     name:z.string({required_error:'name is required'}).trim().min(3,{message:'name should be atleast 3 characters long '}).max(155,{message:'name should not exceed 55 characters'}),
-    ConfirmPassword:z.string({required_error:'password is required'}).trim().min(7,{message:'password should be atleast 7 characters long '}).max(55,{message:'password should not exceed 55 characters'})
+    ConfirmPassword:z.string({required_error:'password is required'}).trim().min(7,{message:'password should be atleast 7 characters long '}).max(55,{message:'password should not exceed 55 characters'}),
+    AdminKey:z.string({required_error:'Admin key is required'})
 })
 
 module.exports={loginvalidate,signupvalidate}

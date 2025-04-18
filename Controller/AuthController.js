@@ -27,7 +27,13 @@ res.status(500).json({FailureMessage:'Internal server error'})
 }
 const AdminRegister=async (req,res)=>{
     try {
-        const {name,email,password,ConfirmPassword,AdminKey}=req.body;
+        console.log(req.body);
+        console.log(req.headers);
+        
+        
+        const {AdminKey,name,email,password,ConfirmPassword}=req.body;
+        console.log(name,email,password,ConfirmPassword,AdminKey);
+        
         console.log(process.env.ADMIN_SECRET_KEY);
         const user=await User.findOne({email:email})
         
